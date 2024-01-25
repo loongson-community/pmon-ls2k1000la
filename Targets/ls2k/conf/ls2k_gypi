@@ -1,0 +1,361 @@
+# config file for loongson pai
+#
+machine         ls2k        loongarch    # CPU Architecture, Platform
+select		loongarch
+config          pmon
+option          VGAROM_IN_BIOS
+
+option		LOONGSON_2K
+option		LOONGARCH_2K1000
+option		SOC_CPU
+option         	BOOT_PARAM
+option      	VRAM_SIZE=16
+#
+#  Define target endian
+#
+makeoptions	ENDIAN=EL		# Little endian version.
+
+option		BOOT_PARAMS_BPI
+
+option      DEBUG_2KLA
+#include "conf/GENERIC_ALL"
+
+#
+# System Name and Target Name
+#
+option		SYSTYPE="\"loongson\""
+option		TARGETNAME="\"loongson\""
+
+#
+# System str options
+#
+option      LS2K_STR
+
+#
+# Platform options
+#
+option		BONITOEL
+option		DEVBD2E
+option		INET
+option		LS3_HT              # Enable the IO cache coherent for ls2k
+
+option      loongson3A3
+option      LSMC_2
+#option      ARB_LEVEL
+option      DDR3_DIMM
+option		TOT_NODE_NUM=0
+
+
+#<<<<<<<<<<<<<<
+###these options can NOT defined at the same time
+#option		DDR3_SODIMM #1Rx8 2GB
+#option		DDR3_SMT    #for SMT x16 SDRAM 4 chip 2GB
+#>>>>>>>>>>>>>>
+
+option 		CORE_FREQ=800
+option		DDR_FREQ=400
+option		HIGH_MEM_WIN_BASE_ADDR=0x80000000
+option      	LOONGSON_GMAC
+#option		SLT
+
+select		mod_flash_amd		# AMD flash device programming
+select		mod_flash_intel		# intel flash device programming
+select		mod_flash_sst		# intel flash device programming
+select		mod_flash_st		# intel flash device programming
+select		mod_debugger		# Debugging module
+select		mod_symbols		# Symbol table handling
+select		mod_s3load		# Srecord loading
+#select		mod_fastload		# LSI Fastload
+select		mod_elfload		# ELF loading
+select		mod_txt
+
+#
+# Command selection. Selects pmon commands
+#
+select		cmd_newmt
+select		cmd_setup
+select		cmd_about		# Display info about PMON
+select		cmd_boot		# Boot wrapper
+select		cmd_mycmd
+select		cmd_mytest
+#select		cmd_mycmd_debug
+select		cmd_newmt
+select		cmd_cache		# Cache enabling
+#select		cmd_call		# Call a function command
+select		cmd_date		# Time of day command
+select		cmd_env			# Full blown environment command set
+select		cmd_flash		# Flash programming cmds
+select		cmd_hist		# Command history
+select		cmd_ifaddr		# Interface address command
+select		cmd_l			# Disassemble
+select		cmd_mem			# Memory manipulation commands
+select		cmd_more		# More paginator
+select		cmd_mt			# Simple memory test command
+select		cmd_misc		# Reboot & Flush etc.
+#select		cmd_stty		# TTY setings command
+select		cmd_tr			# Host port-through command
+select		cmd_devls		# Device list
+select		cmd_set			# As cmd_env but not req. cmd_hist
+select		cmd_testdisk
+#select		cmd_test
+#select		cmd_main
+select		cmd_dtb
+option		DTB
+option INTERFACE_3A780E
+#
+select		cmd_shell		# Shell commands, vers, help, eval
+#
+#
+# Platform options
+#
+select		mod_uart_ns16550	# Standard UART driver
+select		mod_display
+option		CONS_BAUD=B115200
+#select		ext2
+select		ext4
+select		fatfs
+select		ramfiles
+#select		mod_x86emu		# X86 emulation for VGA
+option		MY40IO
+select		mod_x86emu_int10
+option		MY61IO
+option      VGA_BASE=0xb0000000
+select		mod_vgacon
+#select		sis315e
+#option		SIS315E
+option		VGA_NO_ROM       # display card has no rom
+#select		mod_sisfb
+option		NOPCINAMES		# Save some space for x86emu
+#option		FASTBOOT        #快速启动
+#select		vt82c686        #via686a/b code
+
+#Display config
+select		mod_framebuffer
+option      FB_XSIZE=800
+option      FB_YSIZE=480
+select		mod_vesa
+option 		CONFIG_VIDEO_16BPP
+#option		X1280x1024		# if use dc, neep open. if use pcie Graphics, need close.
+#option 	CONFIG_VIDEO_8BPP_INDEX
+
+#
+# Functional options.
+#
+option		NOSNOOP			# Caches are no-snooping
+
+#
+# HAVE options. What tgt level provide
+#
+option		HAVE_TOD		# Time-Of-Day clock
+option		INTERNAL_RTC		# chip internal RTC
+#option		EXTERNAL_RTC		# external RTC
+option		HAVE_NVENV		#  Platform has non-volatile env mem
+option		HAVE_LOGO		# Output splash logo
+option		USE_SUPERIO_UART
+#option      	VESAFB
+#option		USE_LEGACY_RTC
+#option		GODSONEV2A
+#option		LINUX_PC
+#option		LONGMENG
+#option		RADEON7000
+#option 	DEBUG_EMU_VGA
+#option		AUTOLOAD
+#option		CONFIG_PCI0_LARGE_MEM
+#option		CONFIG_PCI0_HUGE_MEM
+#option		CONFIG_PCI0_GAINT_MEM
+option		CONFIG_CACHE_64K_4WAY
+option		NVRAM_IN_FLASH
+#option DDR_PARAM_018="0x3030303016100000"
+option DDR_S1=0xc0a18404
+#option DDR_RESET_REVERT
+
+#
+#  Now the Machine specification
+#
+mainbus0        at root
+localbus0	at mainbus0
+#fd0		at mainbus0
+pcibr0		at mainbus0
+#pcibr1		at mainbus0
+pci*		at pcibr?
+ppb*		at pci? dev ? function ?	# PCI-PCI bridges
+pci*		at ppb? bus ?
+
+#lahci0		at localbus0 base 0x800000001f040000	# AHCI
+#ahci_sd*  	at lahci0
+#ahci_cdrom*  	at lahci0
+
+ahci*		at pci? dev ? function ?
+ahci_sd*  	at ahci?
+ahci_cdrom*  	at ahci?
+
+ohci*   	at pci? dev ? function ?	# OHCI
+usb*      	at ohci?
+#lehci*   	at pci? dev ? function ?	# EHCI
+#usb*      	at lehci?
+
+#lohci1    	at localbus0 base 0x800000001f050000	# EHCI as OHCI
+#usb*      	at lohci1
+
+#lohci0    	at localbus0 base 0x800000001f058000	# OHCI
+#usb*      	at lohci0
+
+#lxhci0    	at localbus0 base 0x800000001f060000	# XHCI
+#xhci0		at lxhci0
+#usb*		at xhci0
+#select 	 	mod_usb_xhci
+
+##### USB
+#uhci*		at pci? dev ? function ?
+
+#### Networking Devices
+#syn0		at localbus0 base 0x800000001f020000
+#syn1		at localbus0 base 0x800000001f030000
+pcisyn0		at pci? dev ? function ?
+pcisyn1		at pci? dev ? function ?
+select		gmac
+
+igb*		at pci? dev ? function ?	# Intel 82576
+select igb1
+
+#### SCSI support
+#siop*		at pci? dev ? function ?	# Symbios/NCR 53c...
+#scsibus*	at siop?
+#sd*		at scsibus? target ? lun ?
+#cd*		at scsibus? target ? lun ?
+
+#### Networking Devices
+#gt0		at localbus? base 4
+#gt1		at localbus? base 5
+#gt2		at localbus? base 6
+
+# fxp normally only used for debugging (enable/disable both)
+#fxp*		at pci? dev ? function ?        # Intel 82559 Device
+#inphy*		at mii? phy ?                   # Intel 82555 PHYs
+#rtl*		at pci? dev ? function ?
+rtk*		at pci? dev ? function ?
+em*		at pci? dev ? function ?
+#uhci*		at pci? dev ? function ?
+#ohci*		at pci? dev ? function ?
+#usb*		at usbbus ?
+#ohci1		at pci? dev ? function ?
+
+select		mod_usb
+select  	mod_usb_storage
+#select		mod_usb_uhci
+select 	 	mod_usb_ohci
+#select 	 	mod_usb_ehci
+select		mod_usb_kbd
+
+#select		pcinvme
+#pcinvme*	at pci? dev ? function ?
+#nvme*		at pcinvme?
+
+#### IDE controllers
+option 		IDE_DMA
+pciide* 	at pci ? dev ? function ? flags 0x0000
+
+#### IDE hard drives
+wd*		at pciide? channel ? drive ? flags 0x0000
+
+#sdcard0		at localbus0 flags 0
+
+select	sdio
+
+#### Pseudo devices
+pseudo-device	loop	1	# network loopback
+
+ide_cd* 	at pciide? channel ? drive ? flags 0x0001
+select 		iso9660
+option		IDECD
+select		cmd_testfire
+#option		HAVE_NB_SERIAL
+#option		USE_ENVMAC
+#option		LOOKLIKE_PC
+#select		cmd_bootp
+option		FOR_GXEMUL
+option		FLOATINGPT
+#option		WDC_NORESET
+select		gzip
+option		INPUT_FROM_BOTH
+option		OUTPUT_TO_BOTH
+option		KBD_CHECK_FAST
+option		TEST_USB_HOST
+option		CONFIG_SLOW_PCI_FOR_BROKENDEV
+option 		CONFIG_VIDEO_SW_CURSOR
+
+select		http
+select		tcp
+select		inet
+
+select		cmd_lwdhcp
+select raw_ether
+#复用关系配置
+#DVO0,DVO1,SATA,PWM0,PWM1,PWM2,PWM3,i2c0,i2c1,can0,can1,HDA,GMAC1
+#option     DEF_CONFIG0=0x
+#option     DEF_CONFIG1=0x
+#option     DEF_CONFIG2=0x
+option      SEL_CAN
+
+
+
+
+
+##HDA 复用
+#option  SEL_HDA         #GPIO24-30,I2S
+#I2S
+option     CONFIG_REG0=0x3fd49
+option     CONFIG_REG1=0xf1011f
+option     CONFIG_REG2=0xf90300de
+
+
+
+
+
+#mtd device config
+select		nand
+select      m25p80
+#select      spinand_lld
+#option      CONFIG_SPINAND_CS=0
+option      CONFIG_LS2K_NAND
+option     NAND_USE_CS=0
+select     nand_bch
+
+#file System config
+select		fatfs
+select      yaffsfs
+#select      ubifs
+#select      ubi
+
+
+#Memory config
+#option		AUTO_DDR_CONFIG		# for DIMM recognize
+option DDR_PARAM_018="0x2020202016100000"
+option NO_AUTO_TRFC
+#option DDR_RESET_REVERT
+
+select cmd_xyzmodem
+option HPET_RTC
+
+select  i2c
+#select  sii9022a
+#蜂鸣器
+option BEEP_GPIO=39
+##无源蜂鸣器
+#option  HS0636
+#龙芯派默认配置
+#option  PAI2
+#option  LCD_EN
+option  GPIO36_RESET_PHY
+option  UART0_ENABLE
+option CONFIG_UART0_SPLIT
+##PCIE配置
+option	PCIE_LANE_FLIP=0            #LANE翻0转，0x3代表PCIE0 port0，0xc代表PCIE0 port1 ...
+#
+#option  FORCE_PCIE_GEN1=0           #强制PCIE 1.0 ，0x1代表PCIE port0，0x2代表PCIE0 port1 ...
+
+#调试
+#option     LS2K_RTC_WAKEUP_REBOOT=0x8
+#Disable ACPI, reboot use WDT
+option     LS2K_REBOOT_WDT
+#option     USE_ENVMAC

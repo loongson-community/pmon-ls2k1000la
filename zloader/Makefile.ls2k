@@ -1,0 +1,9 @@
+TARGET=ls2k
+TARGETEL=ls2k
+START=start.o
+MEMSIZE=128
+#export TARGET_LIB=mem_config.a
+#export TARGET_CFG=make -C ${S}/Targets/${TARGET}/cache_stage/ddr4 clean
+#export TARGET_LD_HEAD=make -C ${S}/Targets/${TARGET}/cache_stage/ddr4
+
+include Makefile.inc

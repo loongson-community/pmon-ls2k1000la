@@ -1,0 +1,988 @@
+# 1 "<stdin>"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "<stdin>"
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 1
+# 15 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h"
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/linux/types.h" 1
+
+
+
+
+typedef unsigned long long u64;
+typedef unsigned char u8;
+typedef unsigned short u16;
+typedef unsigned int u32;
+
+typedef signed char s8;
+typedef signed short s16;
+typedef signed long s32;
+
+typedef signed int sint;
+
+typedef signed long slong;
+# 16 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h" 1
+# 45 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h"
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h" 1
+# 48 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h"
+# 1 "./machine/types.h" 1
+# 45 "./machine/types.h"
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/cdefs.h" 1
+# 53 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/cdefs.h"
+# 1 "./machine/cdefs.h" 1
+# 54 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/cdefs.h" 2
+# 46 "./machine/types.h" 2
+
+typedef unsigned long vm_offset_t;
+typedef unsigned long vm_size_t;
+
+typedef unsigned long vaddr_t;
+typedef unsigned long paddr_t;
+typedef unsigned long vsize_t;
+typedef unsigned long psize_t;
+
+
+
+
+
+
+typedef signed char int8_t;
+typedef unsigned char u_int8_t;
+typedef unsigned char uint8_t;
+typedef short int16_t;
+typedef unsigned short u_int16_t;
+typedef unsigned short uint16_t;
+typedef int int32_t;
+typedef unsigned int u_int32_t;
+typedef unsigned int uint32_t;
+
+typedef long int int64_t;
+
+typedef unsigned long int u_int64_t;
+
+typedef unsigned long int uint64_t;
+# 86 "./machine/types.h"
+typedef int64_t register_t;
+typedef int64_t f_register_t;
+
+
+typedef struct _physadr {
+ int r[1];
+} *physadr;
+
+typedef struct label_t {
+ register_t val[12];
+} label_t;
+# 49 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h" 2
+
+# 1 "./machine/ansi.h" 1
+# 51 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h" 2
+# 1 "./machine/endian.h" 1
+# 35 "./machine/endian.h"
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/endian.h" 1
+# 36 "./machine/endian.h" 2
+# 52 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h" 2
+
+typedef unsigned char __u8;
+typedef unsigned short __u16;
+typedef unsigned int __u32;
+typedef unsigned long long __u64;
+
+typedef long int __int64_t;
+
+typedef unsigned long int __uint64_t;
+
+typedef unsigned char u_char;
+typedef unsigned short u_short;
+typedef unsigned int u_int;
+typedef unsigned long u_long;
+
+typedef unsigned char unchar;
+typedef unsigned short ushort;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+
+typedef u_int64_t u_quad_t;
+typedef int64_t quad_t;
+typedef quad_t * qaddr_t;
+
+typedef char * caddr_t;
+typedef int64_t daddr_t;
+typedef __int64_t daddr64_t;
+typedef int32_t dev_t;
+typedef u_int32_t fixpt_t;
+typedef u_int32_t gid_t;
+typedef u_int32_t ino_t;
+typedef long key_t;
+typedef u_int16_t mode_t;
+typedef u_int16_t nlink_t;
+typedef quad_t off_t;
+typedef int32_t pid_t;
+typedef quad_t rlim_t;
+typedef int32_t segsz_t;
+typedef int32_t swblk_t;
+typedef u_int32_t uid_t;
+typedef u_int32_t useconds_t;
+typedef int32_t suseconds_t;
+# 103 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h"
+typedef u_int32_t in_addr_t;
+typedef u_int16_t in_port_t;
+typedef u_int8_t sa_family_t;
+typedef u_int32_t socklen_t;
+# 132 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h"
+typedef unsigned long clock_t;
+
+
+
+
+typedef unsigned int size_t;
+
+
+
+
+typedef int ssize_t;
+
+
+
+
+typedef int time_t;
+
+
+
+
+typedef int clockid_t;
+
+
+
+
+typedef int timer_t;
+# 174 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h"
+typedef int32_t fd_mask;
+
+
+
+
+
+
+typedef struct fd_set {
+ fd_mask fds_bits[(((256) + (((sizeof(fd_mask) * 8)) - 1)) / ((sizeof(fd_mask) * 8)))];
+} fd_set;
+# 202 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/types.h"
+struct proc;
+struct pgrp;
+struct ucred;
+struct rusage;
+struct file;
+struct buf;
+struct tty;
+struct uio;
+# 46 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h" 2
+
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/malloc.h" 1
+# 283 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/malloc.h"
+struct kmemstats {
+ long ks_inuse;
+ long ks_calls;
+ long ks_memuse;
+ u_short ks_limblocks;
+ u_short ks_mapblocks;
+ long ks_maxused;
+ long ks_limit;
+ long ks_size;
+ long ks_spare;
+};
+
+
+
+
+struct kmemusage {
+ short ku_indx;
+ union {
+  u_short freecnt;
+  u_short pagecnt;
+ } ku_un;
+};
+
+
+
+
+
+
+struct kmembuckets {
+ caddr_t kb_next;
+ caddr_t kb_last;
+ long kb_calls;
+ long kb_total;
+ long kb_totalfree;
+ long kb_elmpercl;
+ long kb_highwat;
+ long kb_couldfree;
+};
+# 378 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/malloc.h"
+typedef struct vm_map *vm_map_t;
+vm_offset_t kmem_malloc (vm_map_t, vm_size_t, int);
+vm_map_t kmem_suballoc (vm_map_t, vm_offset_t *, vm_offset_t *, vm_size_t, int);
+
+vm_offset_t kmem_alloc (vm_map_t, vm_size_t);
+void kmem_free (vm_map_t, vm_offset_t, vm_size_t);
+# 426 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../sys/sys/malloc.h"
+extern struct kmemstats kmemstats[];
+extern struct kmemusage *kmemusage;
+extern char *kmembase;
+extern struct kmembuckets bucket[];
+
+extern void *kern_malloc (unsigned long size, int type, int flags);
+extern void kern_free (void *addr, int type);
+# 48 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h" 2
+# 1 "./machine/pmon_arch.h" 1
+# 49 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h" 2
+
+
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/progress.h" 1
+# 52 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h" 2
+# 1 "./target/pmon_target.h" 1
+# 34 "./target/pmon_target.h"
+# 1 "./target/bonito.h" 1
+# 21 "./target/bonito.h"
+# 1 "./machine/cpu.h" 1
+# 52 "./machine/cpu.h"
+# 1 "./machine/psl.h" 1
+# 41 "./machine/psl.h"
+# 1 "./machine/cpu.h" 1
+# 42 "./machine/psl.h" 2
+# 72 "./machine/psl.h"
+# 1 "./machine/intr.h" 1
+# 73 "./machine/psl.h" 2
+# 53 "./machine/cpu.h" 2
+# 22 "./target/bonito.h" 2
+# 35 "./target/pmon_target.h" 2
+
+
+
+
+void hexserial (int);
+# 66 "./target/pmon_target.h"
+extern int mtd_rescan(char *,char *);
+# 1 "./nand.h" 1
+# 68 "./target/pmon_target.h" 2
+# 53 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h" 2
+# 104 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h"
+typedef int Func (void);
+
+typedef struct Demo {
+ const char *name;
+ Func *addr;
+} Demo;
+
+typedef struct Optdesc {
+ const char *name;
+ const char *desc;
+} Optdesc;
+
+typedef struct Cmd {
+ const char *name;
+ const char *opts;
+ const Optdesc *optdesc;
+ const char *desc;
+ int (*func) (int, char *[]);
+ int minac;
+ int maxac;
+ int flag;
+
+
+
+} Cmd;
+
+void cmdlist_expand (const Cmd *, int);
+
+typedef struct Bps {
+ unsigned long addr;
+ unsigned long value;
+ char *cmdstr;
+} Bps;
+
+typedef struct Stopentry {
+ unsigned long addr;
+ unsigned long value;
+ char name[10];
+ char sense;
+} Stopentry;
+
+
+extern char *searching;
+extern const Cmd *CmdList[];
+extern char date[];
+extern char vers[];
+extern register_t initial_sr;
+
+extern struct trapframe *cpuinfotab[];
+
+
+struct trapframe;
+
+
+
+
+
+long load_elf (int, char *, int *, int);
+
+
+int getbaudrate (char *);
+
+
+int chg_heaptop (char *, char *);
+
+
+void init_net (int);
+
+
+void flush_cache (int, void *);
+
+
+void store_dword (void *, int64_t);
+void store_word (void *, int32_t);
+void store_half (void *, int16_t);
+void store_byte (void *, int8_t);
+
+
+
+void rm_bpts (void);
+void flush_validpc (void);
+int chg_validpc (char *, char *);
+void clrbpts (void);
+register_t getpchist (int);
+
+extern int trace_mode;
+extern Bps Bpt[];
+extern Bps BptTmp;
+extern Bps BptTrc;
+extern Bps BptTrcb;
+
+
+void get_cmd (char *);
+void histinit (void);
+void get_line (char *, int);
+char *gethistn (int);
+
+extern int histno;
+
+
+int main (void);
+void dbginit (char *);
+int do_cmd (char *);
+int no_cmd (int, char *[]);
+void closelst (int);
+void console_state(int);
+void get_memorysize();
+
+extern unsigned long long memorysize;
+extern int repeating_cmd;
+extern char prnbuf[];
+extern char line[512 + 1];
+
+
+int chg_moresz (char *, char *);
+void dotik (int, int);
+int more (char *, int *, int);
+
+extern unsigned int moresz;
+
+
+int get_rsa (u_int32_t *, char *);
+int get_rsa_reg (register_t *, char *);
+
+
+void envbuild (char **, char *);
+void envinit (void);
+void envsize (int *, int *);
+void mapenv (void (*) (char *, char *));
+int matchenv (char *);
+int setenv (char *, char *);
+int do_setenv (char *, char *, int);
+
+
+void syminit (void);
+void clrsyms (void);
+int newsym (char *, u_int64_t);
+void defsyms (u_int64_t, u_int64_t, u_int64_t);
+int sym2adr (register_t *, char *);
+char *adr2sym (char *, unsigned long);
+int adr2symoff (char *, unsigned long, int);
+
+
+int atob (u_int32_t *, char *, int);
+int llatob (u_int64_t *, char *, int);
+int gethex (int32_t *, char *, int32_t);
+char *btoa (char *, u_int32_t, int32_t);
+char *llbtoa (char *, u_int64_t, int32_t);
+
+void movequad (void *, void *);
+
+
+
+
+void md_cacheon (void);
+int md_cachestat (void);
+const char *md_cpuname (void);
+int md_cputype (void);
+void md_dumpexc (struct trapframe *);
+int md_getpipefreq (int);
+void md_fprestore (void *);
+void md_fpsave (void *);
+void md_setpc (struct trapframe *, register_t);
+void *md_getpc (struct trapframe *);
+void md_clreg (struct trapframe *);
+void md_setsp (struct trapframe *, register_t);
+void md_setsr (struct trapframe *, register_t);
+void md_setlr (struct trapframe *, register_t);
+register_t md_getsr (struct trapframe *);
+register_t md_getlink (struct trapframe *);
+register_t md_adjstack (struct trapframe *, register_t);
+void *md_branch_target (void *);
+void md_setargs (struct trapframe *, register_t,register_t,
+  register_t, register_t);
+void md_setentry (struct trapframe *, register_t);
+int md_valid_load_addr (paddr_t, paddr_t);
+int md_exc_type (struct trapframe *);
+void *md_get_excpc (struct trapframe *);
+const char *md_getexcname (struct trapframe *);
+int md_is_call (void *p);
+int md_is_jr (void *p);
+int md_is_writeable (void *p);
+int md_is_branch (void *p);
+int md_is_cond_branch (void *p);
+void md_settrace (void);
+int md_ator (register_t *, char *, int);
+void *md_disasm (char *, void *);
+
+void *md_getcpuinfoptr (void);
+int md_getreg (register_t *, char *);
+int md_getregaddr (register_t **, char *);
+int md_disp_as_reg (register_t *, char *, int *);
+int md_registers (int, char *[]);
+int md_disassemble (int, char *[]);
+int md_stacktrace (int, char *[]);
+
+void *md_dumpframe (void *);
+void md_do_stacktrace (void *, int, int, char *);
+
+void md_init_cmd_debug (void);
+void sym_init_cmd_debug (void);
+
+struct fl_map;
+
+
+
+
+void clrhndlrs (void);
+void cpu_initclocks (void);
+void enablertclock (void);
+void startrtclock (int);
+register_t tgt_clienttos (void);
+void tgt_clkpoll (void);
+int tgt_clockram_read(char *, int, int);
+int tgt_clockram_write(char *, int, int);
+void tgt_cmd_vers (void);
+void tgt_devconfig (void);
+void tgt_devinit (void);
+void tgt_display (char *, int);
+register_t tgt_enable (int);
+int tgt_ethaddr (char *);
+void tgt_flashinfo (void *, size_t *);
+void tgt_flashinit (void);
+struct fl_map *tgt_flashmap (void);
+void tgt_flashprogram (void *, int, void *, int);
+int tgt_flashsetpageno (int);
+void tgt_flashwrite_disable (void);
+int tgt_flashwrite_enable (void);
+int tgt_getmachtype (void);
+time_t tgt_gettime (void);
+void tgt_logo (void);
+void tgt_machprint (void);
+void tgt_machreset (void);
+void tgt_poweroff (void);
+void tgt_mapenv (int (*) (char *, char *));
+void tgt_memprint (void);
+void tgt_netinit (void);
+void tgt_netpoll (void);
+void tgt_netreset (void);
+int tgt_onesecond(int);
+uint64_t tgt_pipefreq (void);
+void tgt_poll (void);
+void *tgt_poll_register (int, int(*) (void *), void *);
+void tgt_putchar (int);
+void tgt_reboot (void);
+void tgt_rtinit (void);
+int tgt_setenv (char *, char *);
+void tgt_settime (time_t);
+int tgt_unsetenv (char *);
+void initstack (int, char **, int);
+# 379 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h"
+void netpoll (void);
+int spawn (char *, int(*) (int, char *[]), int, char *[]);
+# 393 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pmon.h"
+unsigned long ulmin (unsigned long, unsigned long);
+long lmin(long, long);
+int min(int, int);
+
+extern int cpuid;
+# 17 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdio.h" 1
+# 12 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdio.h"
+# 1 "./mod_usb_kbd.h" 1
+# 13 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdio.h" 2
+# 22 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdio.h"
+typedef struct FILE {
+ int fd;
+ int valid;
+ int ungetcflag;
+ int ungetchar;
+} FILE;
+
+
+int fclose (FILE *);
+FILE *fopen (const char *, const char *);
+
+int fgetc (FILE *);
+char *fgets (char *, int , FILE *);
+size_t fread (void *, size_t, size_t, FILE *);
+int fscanf (FILE *, const char *, ...);
+int getc (FILE *);
+int getchar (void);
+char *gets (char *);
+int scanf (const char *, ...);
+int sscanf (const char *, const char *, ...);
+int ungetc (int, FILE *);
+
+long ftell (FILE *);
+int fprintf (FILE *, const char *, ...);
+int fputc (int , FILE *);
+int fputs (const char *, FILE *);
+size_t fwrite (const void *, size_t, size_t, FILE *);
+int printf (const char *, ...);
+int putc (int, FILE *);
+int putchar (int);
+int puts (const char *);
+int sprintf (char *, const char *, ...);
+
+int vfprintf (FILE *, const char *, char *);
+int vprintf (const char *, char *);
+int vsprintf (char *, const char *, char *);
+void perror (const char *);
+
+
+void clearerr (FILE *);
+int feof (FILE *);
+int ferror (FILE *);
+int fileno (FILE *);
+int fflush (FILE *);
+int fseek (FILE *, long int, int);
+
+extern FILE _iob[];
+extern int vga_available;
+extern int kbd_available;
+extern int usb_kbd_available;
+# 95 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdio.h"
+typedef int iFunc (void);
+typedef int *Addr;
+# 18 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/string.h" 1
+# 50 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/string.h"
+
+void bzero (void *, size_t);
+char *strcat (char *, const char *);
+char *strncat (char *, const char *, size_t);
+char *strchr (const char *, int);
+char *strnchr (const char *, char, size_t);
+char *strncpy (char *, const char *, size_t);
+int strncmp (const char *, const char *, size_t);
+char *strcpy (char *, const char *);
+char *strrchr (const char *, int);
+char *strpbrk (const char *, const char *);
+size_t strlen (const char *);
+char *strtok (char *, const char *);
+char *strstr (const char *, const char *);
+char *strerror (int);
+int strcasecmp (const char *, const char *);
+int strncasecmp (const char *, const char *, size_t);
+void *memchr (const void *, int, size_t);
+
+
+char *index (const char *, int);
+char *rindex (const char *, int);
+
+char *strdchr (char *);
+char *strichr (char *, int);
+void stristr (char *, const char *);
+char *strccat (char *, int);
+void strmerge (char *, const char *);
+int strspn (const char *, const char *);
+int strcspn (const char *, const char *);
+int strempty (const char *);
+char *getword (char *, const char *);
+int strnwrd (const char *);
+int wordsz (const char *);
+char *strset (const char *, const char *);
+char *strrset (const char *, const char *);
+char *strbalp (const char *);
+char *strrpset (const char *, const char *);
+char *strrrot (char *);
+void strsort (char *);
+
+int striequ (const char *, const char *);
+int strbequ (const char *, const char *);
+int strpat (const char *, const char *);
+char *strposn (const char *, const char *);
+char *cc2str (char *, int);
+int str2cc (const char *);
+int argvize (char *[], char *);
+int ffs (int);
+void bcopy (const char *, char *, size_t);
+int bcmp (const void *, const void *, size_t);
+void str_fmt (char *, int, int);
+void strtoupper (char *);
+
+
+
+# 19 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "./target/ls2k1000.h" 1
+# 20 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pflash.h" 1
+# 38 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pflash.h"
+struct fl_functions;
+
+
+
+
+struct fl_device {
+ char *fl_name;
+ char fl_mfg;
+ char fl_id;
+ char fl_proto;
+ char fl_cap;
+ int fl_size;
+ int fl_secsize;
+        int *fl_varsecsize;
+ struct fl_functions *functions;
+};
+# 67 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pflash.h"
+struct fl_map {
+ u_int64_t fl_map_base;
+ u_int64_t fl_map_size;
+ int fl_map_width;
+ int fl_map_chips;
+ int fl_map_bus;
+ int fl_map_offset;
+ int fl_type;
+};
+# 89 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pflash.h"
+struct fl_functions {
+ int (*erase_chip)
+  (struct fl_map *, struct fl_device *);
+ int (*erase_sector)
+  (struct fl_map *, struct fl_device *, int);
+ int (*isbusy)
+  (struct fl_map *, struct fl_device *, int, int, int);
+ int (*reset)
+  (struct fl_map *, struct fl_device *);
+ int (*erase_suspend)
+  (struct fl_map *, struct fl_device *);
+ int (*program)
+  (struct fl_map *, struct fl_device *, int, unsigned char *);
+
+};
+# 140 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/pflash.h"
+struct fl_map *fl_find_map (void *);
+struct fl_device *fl_devident (void *, struct fl_map **);
+void fl_query_info (void);
+int fl_erase_device (void *, int, int);
+int fl_program_device (void *, void *, int, int);
+int fl_verify_device (void *, void *, int, int);
+
+extern struct fl_device fl_known_dev[];
+extern struct fl_functions fl_func_amd;
+extern struct fl_functions fl_func_int;
+
+extern struct fl_functions fl_func_sst;
+extern struct fl_functions fl_func_spi;
+extern struct fl_functions fl_func_st;
+extern struct fl_functions fl_func_winbond;
+# 21 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+
+# 1 "./machine/frame.h" 1
+# 37 "./machine/frame.h"
+struct trapframe {
+ register_t zero;
+ register_t ra;
+ register_t gp;
+ register_t sp;
+ register_t a0;
+ register_t a1;
+ register_t a2;
+ register_t a3;
+ register_t a4;
+ register_t a5;
+ register_t a6;
+ register_t a7;
+ register_t t0;
+ register_t t1;
+ register_t t2;
+ register_t t3;
+ register_t t4;
+ register_t t5;
+ register_t t6;
+ register_t t7;
+ register_t t8;
+ register_t tp;
+ register_t fp;
+ register_t s0;
+ register_t s1;
+ register_t s2;
+ register_t s3;
+ register_t s4;
+ register_t s5;
+ register_t s6;
+ register_t s7;
+ register_t s8;
+ register_t csrcrmd;
+ register_t csrprmd;
+ register_t reserved[2];
+ register_t csrectl;
+ register_t csrestat;
+ register_t csrepc;
+ register_t csrbadv;
+ register_t csrbadi;
+
+ f_register_t f0;
+ f_register_t f1;
+ f_register_t f2;
+ f_register_t f3;
+ f_register_t f4;
+ f_register_t f5;
+ f_register_t f6;
+ f_register_t f7;
+ f_register_t f8;
+ f_register_t f9;
+ f_register_t f10;
+ f_register_t f11;
+ f_register_t f12;
+ f_register_t f13;
+ f_register_t f14;
+ f_register_t f15;
+ f_register_t f16;
+ f_register_t f17;
+ f_register_t f18;
+ f_register_t f19;
+ f_register_t f20;
+ f_register_t f21;
+ f_register_t f22;
+ f_register_t f23;
+ f_register_t f24;
+ f_register_t f25;
+ f_register_t f26;
+ f_register_t f27;
+ f_register_t f28;
+ f_register_t f29;
+ f_register_t f30;
+ f_register_t f31;
+
+
+};
+# 23 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "./target/eeprom.h" 1
+void i2c_init();
+int ls2k_eeprom_read_cur(unsigned char *buf);
+int ls2k_eeprom_read_rand(unsigned char data_addr, unsigned char *buf);
+int ls2k_eeprom_read_seq(unsigned char data_addr, unsigned char *buf, int count);
+int ls2k_eeprom_write_byte(unsigned char data_addr, unsigned char *buf);
+int ls2k_eeprom_write_page(unsigned char data_addr, unsigned char *buf, int count);
+int mac_read(unsigned char data_addr, unsigned char *buf, int count);
+int mac_write(unsigned char data_addr, unsigned char *buf, int count);
+# 24 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdlib.h" 1
+# 53 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdlib.h"
+typedef int wchar_t;
+
+
+
+typedef struct {
+ int quot;
+ int rem;
+} div_t;
+
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+
+
+typedef struct {
+ quad_t quot;
+ quad_t rem;
+} qdiv_t;
+# 92 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/stdlib.h"
+
+ void abort (void);
+int abs (int);
+int atexit (void (*)(void));
+double atof (const char *);
+int atoi (const char *);
+long atol (const char *);
+void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
+
+void *calloc (size_t, size_t);
+div_t div (int, int);
+ void exit (int);
+char *getenv (const char *);
+long labs (long);
+ldiv_t ldiv (long, long);
+void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int rand (void);
+int rand_r (unsigned int *);
+void *realloc (void *, size_t);
+void srand (unsigned);
+double strtod (const char *, char **);
+long strtol (const char *, char **, int);
+unsigned long
+  strtoul (const char *, char **, int);
+int system (const char *);
+
+
+int mblen (const char *, size_t);
+size_t mbstowcs (wchar_t *, const char *, size_t);
+int wctomb (char *, wchar_t);
+int mbtowc (wchar_t *, const char *, size_t);
+size_t wcstombs (char *, const wchar_t *, size_t);
+
+
+
+
+
+void *alloca (size_t);
+
+
+char *getbsize (int *, long *);
+char *cgetcap (char *, const char *, int);
+int cgetclose (void);
+int cgetent (char **, char **, const char *);
+int cgetfirst (char **, char **);
+int cgetmatch (char *, const char *);
+int cgetnext (char **, char **);
+int cgetnum (char *, const char *, long *);
+int cgetset (const char *);
+int cgetstr (char *, const char *, char **);
+int cgetustr (char *, const char *, char **);
+
+int daemon (int, int);
+char *devname (int, int);
+int getloadavg (double [], int);
+
+long a64l (const char *);
+char *l64a (long);
+
+void cfree (void *);
+
+int getopt (int, char * const *, const char *);
+extern char *optarg;
+extern int opterr;
+extern int optind;
+extern int optopt;
+extern int optreset;
+int getsubopt (char **, char * const *, char **);
+extern char *suboptarg;
+
+int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int mergesort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+int radixsort (const unsigned char **, int, const unsigned char *, unsigned);
+
+int sradixsort (const unsigned char **, int, const unsigned char *, unsigned);
+
+
+char *initstate (unsigned int, char *, size_t);
+long random (void);
+char *realpath (const char *, char *);
+char *setstate (const char *);
+void srandom (unsigned int);
+
+int putenv (const char *);
+
+
+
+void unsetenv (const char *);
+void setproctitle (const char *, ...);
+
+quad_t qabs (quad_t);
+qdiv_t qdiv (quad_t, quad_t);
+quad_t strtoq (const char *, char **, int);
+u_quad_t strtouq (const char *, char **, int);
+
+double drand48 (void);
+double erand48 (unsigned short[3]);
+long jrand48 (unsigned short[3]);
+void lcong48 (unsigned short[7]);
+long lrand48 (void);
+long mrand48 (void);
+long nrand48 (unsigned short[3]);
+unsigned short *seed48 (unsigned short[3]);
+void srand48 (long);
+
+u_int32_t arc4random (void);
+void arc4random_stir (void);
+void arc4random_addrandom (unsigned char *, int);
+
+int getbaudval (int );
+int getbaudrate (char *);
+
+
+
+
+# 25 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 1 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/ctype.h" 1
+# 58 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../include/ctype.h"
+extern const char *_ctype_;
+extern const short *_tolower_tab_;
+extern const short *_toupper_tab_;
+
+
+extern int isalnum (int);
+extern int isalpha (int);
+extern int iscntrl (int);
+extern int isdigit (int);
+extern int isgraph (int);
+extern int islower (int);
+extern int isprint (int);
+extern int ispunct (int);
+extern int isspace (int);
+extern int isupper (int);
+extern int isxdigit (int);
+extern int tolower (int);
+extern int toupper (int);
+
+
+extern int isblank (int);
+extern int isascii (int);
+extern int toascii (int);
+extern int _tolower (int);
+extern int _toupper (int);
+
+
+# 26 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h" 2
+# 34 "/code/pmon/la-2k1000/506-2/pmon-loongarch/Targets/ls2k/compile/ls2k/../../../../Targets/ls2k/include/load_dtb.h"
+extern unsigned long long memorysize_total;
+extern char *heaptop;
+struct fdt_header *working_fdt;
+
+int dtb_cksum(void *p, size_t s, int set);
+void verify_dtb(void);
+unsigned long long setup_dtb(int ac, char ** av);
+int load_dtb(int argc,char **argv);
+int erase_dtb(int ac, char ** av);
+int update_bootarg(int ac, char ** av, void * ssp);
+# 2 "<stdin>" 2
+0x000ff000
+(0x000ff000 - 0x4000)

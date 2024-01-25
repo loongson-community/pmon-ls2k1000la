@@ -1,0 +1,25 @@
+
+2022.09.26  Release 0.3   <fengsiyuan@loongson.cn>
+	* 添加新的yaffs2驱动
+	* 解决32位、16位内存训练程序问题
+	* 修复内存参数调试程序存在的问题
+	* 添加新的辅助配置
+	* 解决内核启动花屏问题
+	* 该版本为调试版本，有任何问题请反馈<fengsiyuan@loongson.cn>
+
+2022.07.21  Release 0.2   <fengsiyuan@loongson.cn>
+
+	* commit: 275bf90d7bede309ed715208784996b729146002
+	* 修复一些BUG，生成v0.2版本PMON
+	* 添加yaffs2支持
+	* 添加SPINAND支持
+	* 添加UBIFS支持
+	* 解决SATA、NAND、内存等在使用过程中存在的问题
+	* 该版本为调试版本，有任何问题请反馈<fengsiyuan@loongson.cn>
+
+2022.06.10  Release 0.1   <fengsiyuan@loongson.cn>
+
+	* commit: 66064cb24dab8a101fbe97e077699b5bb9568917
+	* 在现有板卡上测试完成，生成v0.1版本PMON
+	* 该PMON为LS2K1000LA芯片专用
+

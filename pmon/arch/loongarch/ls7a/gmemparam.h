@@ -1,0 +1,517 @@
+#ifndef __GMEM_PARAMETER_H__
+#define __GMEM_PARAMETER_H__
+
+#include <sys/types.h>
+
+#define CONF_GMEM_BAR_MASK_OFFSET 0x3838
+#define MC_REGS_COUNT               118
+
+#define DQ_CHANGE_WITH_DQS
+#define MC_MULTI_CHANNEL  //TODO
+
+#define DLL_VALVE_CK_OFFSET         0x32
+#define DDR3_INIT_START_OFFSET      0x18
+
+#define WRDQ_LT_HALF_OFFSET         0x20
+#define WRDQS_LT_HALF_OFFSET        0x21
+#define RDDQS_LT_HALF_OFFSET        0x22
+#define RDDATA_DELAY_OFFSET         0x23
+#define RDOE_BEGIN_OFFSET           0x2e
+#define RDOE_END_OFFSET             0x2f
+#define RDOE_START_OFFSET           0x2c
+#define RDOE_STOP_OFFSET            0x2d
+#define RDODT_BEGIN_OFFSET          0x32
+#define RDODT_END_OFFSET            0x33
+#define RDODT_START_OFFSET          0x30
+#define RDODT_STOP_OFFSET           0x31
+#define WRDQ_CLKDELAY_OFFSET        0x34
+#define DDR3_DLL_GATE_OFFSET        0x38
+#define DDR3_DLL_WRDQ_OFFSET        0x39
+#define DDR3_DLL_WRDQS_OFFSET       0x3a
+
+#define DDR3_DDR2__MODE_OFFSET      0x160
+#define DDR3_DRAM_INIT_OFFSET       0x163
+#define CS_ENABLE_OFFSET            0x168
+#define CS_MRS_OFFSET               0x169
+#define CS_ZQ_OFFSET                0x16a
+#define BURST_LENGTH_OFFSET         0x16c
+//#define ADDR_MIRROR_OFFSET          0x16e
+
+#define COL_DIFF_OFFSET             0x210
+#define BA_DIFF_OFFSET              0x211
+//#define ROW_DIFF_OFFSET             0x212
+#define CS_DIFF_OFFSET              0x213
+#define ADDR_WIN_OFFSET             0x214
+
+
+#define ODT_MAP_OFFSET              0x170
+#define ECC_ENABLE_OFFSET           0x252
+#define ECC_INT_ENABLE_OFFSET       0x250
+#define ADDR_INFO_CS_0_OFFSET       0x210
+#define ADDR_INFO_CS_1_OFFSET       0x218
+#define ADDR_INFO_CS_2_OFFSET       0x220
+#define ADDR_INFO_CS_3_OFFSET       0x228
+
+#define CMD_TIMING_OFFSET           0x161
+#define tRDDATA_OFFSET              0x1c0
+#define VERSION_OFFSET              0x0
+#define BANK_OFFSET                 0x16b
+
+#define DDR3_LVL_CS_OFFSET          0x183
+#define DDR3_LVL_MODE_OFFSET        0x180
+#define DDR3_LVL_REQ_OFFSET         0x181
+#define DDR3_LVL_READY_OFFSET       0x185
+#define DDR3_LVL_DONE_OFFSET        0x186
+#define DDR3_LVL_RESP_OFFSET        0x187
+
+#define tPHY_RDDATA_OFFSET          0x1c0
+#define tPHY_WRLAT_OFFSET           0x1d4
+#define tRFC_OFFSET                 0x1ca
+#define tREF_OFFSET                 0x1cb
+
+#define WLVL_CHECK_BIT              0x01
+#define GLVL_CHECK_BIT              0x3
+#define WLVL_FILTER_LEN             0x5
+#define GLVL_FILTER_LEN             0x5
+#define DLL_WRDQ_SUB                0x20
+#define DLL_GATE_SUB                0x20
+#define DLL_ADJ_RANGE               0x8
+#define WRDQ_LT_HALF_STD            0x40
+#define WRDQS_LT_HALF_STD           0x40
+#define RDDQS_LT_HALF_STD1          0x3A
+#define RDDQS_LT_HALF_STD2          0x10
+#define PREAMBLE_LEN                0x60
+
+#define CS_MAP_OFFSET               0x1f4
+
+#define BURST_LENGTH                8
+
+#define DRAM_TYPE_OFFSET            0x2
+#define DDR2                        0x8
+#define DDR3                        0xb
+#define DDR4                        0xc
+
+#define MODULE_TYPE_OFFSET          0x3
+#define RDIMM                       0x1
+#define UDIMM                       0x2
+#define SODIMM                      0x3
+
+#define DRAM_DEN_BANK_OFFSET        0x4
+#define DRAM_DEN_OFFSET             0x0
+#define DRAM_DEN_BIT                0xf
+#define DRAM_DEN_256Mb              0x0
+#define DRAM_DEN_512Mb              0x1
+#define DRAM_DEN_1Gb                0x2
+#define DRAM_DEN_2Gb                0x3
+#define DRAM_DEN_4Gb                0x4
+#define DRAM_DEN_8Gb                0x5
+#define DRAM_DEN_16Gb               0x6
+#define DRAM_BANK_OFFSET            0x4
+#define DRAM_BANK_BIT               0x7
+#define BANK_8                      0x0
+#define BANK_16                     0x1
+
+#define DRAM_ADDR_OFFSET            0x5
+#define DRAM_COL_OFFSET             0x0
+#define DRAM_COL_BIT                0x7
+#define DRAM_COL_9                  0x0
+#define DRAM_COL_10                 0x1
+#define DRAM_COL_11                 0x2
+#define DRAM_COL_12                 0x3
+#define DRAM_ROW_OFFSET             0x3
+#define DRAM_ROW_BIT                0x7
+#define DRAM_ROW_12                 0x0
+#define DRAM_ROW_13                 0x1
+#define DRAM_ROW_14                 0x2
+#define DRAM_ROW_15                 0x3
+#define DRAM_ROW_16                 0x4
+
+#define MODULE_ORG_OFFSET           0x7
+#define DRAM_WIDTH_OFFSET           0x0
+#define DRAM_WIDTH_BIT              0x7
+#define DRAM_X4                     0x0
+#define DRAM_X8                     0x1
+#define DRAM_X16                    0x2
+#define DRAM_X32                    0x3
+#define MODULE_RANK_OFFSET          0x3
+#define MODULE_RANK_BIT             0x7
+#define MODULE_RANK_1               0x0
+#define MODULE_RANK_2               0x1
+#define MODULE_RANK_3               0x2
+#define MODULE_RANK_4               0x3
+
+#define MODULE_BUS_WIDTH_OFFSET     0x8
+#define MODULE_WIDTH_OFFSET         0x0
+#define MODULE_WIDTH_BIT            0x7
+#define MODULE_WIDTH64              0x3
+#define MODULE_WIDTH32              0x2
+#define MODULE_WIDTH16              0x1
+#define MODULE_WIDTH8               0x0
+
+#define DDR3_MODULE_TYPE_OFFSET                 0x3
+#define DDR3_MODULE_BASE_MODULE_TYPE_BITS_OFFSET        0x0
+#define DDR3_MODULE_BASE_MODULE_TYPE_BITS_MASK          0xF
+
+#define DDR3_SDRAM_DENSITY_AND_BANKS_OFFSET     0x4
+
+#define DDR3_SDRAM_TOTAL_CAPACITY_BITS_OFFSET           0x0
+#define DDR3_SDRAM_TOTAL_CAPACITY_BITS_MASK             0xF
+
+#define DDR3_SDRAM_BANK_ADDRESS_BITS_OFFSET             0x4
+#define DDR3_SDRAM_BANK_ADDRESS_BITS_MASK               0x3
+
+#define DDR3_SDRAM_ADDRESSING_OFFSET            0x5
+#define DDR3_ROW_ADDRESSING_BITS_OFFSET                 0x3
+#define DDR3_ROW_ADDRESSING_BITS_MASK                   0x7
+
+#define DDR3_COLUMN_ADDRESSING_BITS_OFFSET              0x0
+#define DDR3_COLUMN_ADDRESSING_BITS_MASK                0x7
+
+#define DDR3_MODULE_NOMINAL_VOLTAGE_OFFSET      0x6
+#define DDR3_MODULE_NOMINAL_VOLTAGE_BITS_OFFSET         0x0
+#define DDR3_MODULE_NOMINAL_VOLTAGE_BITS_MASK           0x7
+
+#define DDR3_MODULE_ORG_OFFSET                  0x7
+#define DDR3_MODULE_ORG_SDRAM_DEVICE_WIDTH_BITS_OFFSET  0x0
+#define DDR3_MODULE_ORG_SDRAM_DEVICE_WIDTH_BITS_MASK    0x7
+
+#define DDR3_MODULE_ORG_SDRAM_NUMBER_RANKS_BITS_OFFSET  0x3
+#define DDR3_MODULE_ORG_SDRAM_NUMBER_RANKS_BITS_MASK    0x7
+
+#define DDR3_MODULE_MEM_BUS_WIDTH_OFFSET        0x8
+#define DDR3_MODULE_MEM_PRIMARY_BUS_WIDTH_BITS_OFFSET   0x0
+#define DDR3_MODULE_MEM_PRIMARY_BUS_WIDTH_BITS_MASK     0x7
+
+#define DDR3_MODULE_MEM_BUS_WIDTH_EXTENSION_BITS_OFFSET 0x3
+#define DDR3_MODULE_MEM_BUS_WIDTH_EXTENSION_BITS_MASK   0x3
+
+#define DDR3_MODULE_MODULE_MANUFACTURER_FIRST_OFFSET 117
+#define DDR3_MODULE_MODULE_MANUFACTURER_SEC_OFFSET   118
+#define DDR3_MODULE_MANUFACTURER_LEN                    0x2
+
+#define DDR3_MODULE_SERIAL_NUMBER_BASE_OFFSET   122
+#define DDR3_MODULE_SERIAL_NUMBER1_OFFSET       123
+#define DDR3_MODULE_SERIAL_NUMBER2_OFFSET       124
+#define DDR3_MODULE_SERIAL_NUMBER3_OFFSET       125
+#define DDR3_MODULE_SERIAL_NUMBER_LEN           0x4
+
+#define DDR3_MODULE_PART_NUMBER_BASE_OFFSET     128
+#define DDR3_MODULE_PART_NUMBER1_OFFSET         129
+#define DDR3_MODULE_PART_NUMBER2_OFFSET         130
+#define DDR3_MODULE_PART_NUMBER3_OFFSET         131
+#define DDR3_MODULE_PART_NUMBER4_OFFSET         132
+#define DDR3_MODULE_PART_NUMBER5_OFFSET         133
+#define DDR3_MODULE_PART_NUMBER6_OFFSET         134
+#define DDR3_MODULE_PART_NUMBER7_OFFSET         135
+#define DDR3_MODULE_PART_NUMBER8_OFFSET         136
+#define DDR3_MODULE_PART_NUMBER9_OFFSET         137
+#define DDR3_MODULE_PART_NUMBERa_OFFSET         138
+#define DDR3_MODULE_PART_NUMBERb_OFFSET         139
+#define DDR3_MODULE_PART_NUMBERc_OFFSET         140
+#define DDR3_MODULE_PART_NUMBERd_OFFSET         141
+#define DDR3_MODULE_PART_NUMBERe_OFFSET         142
+#define DDR3_MODULE_PART_NUMBERf_OFFSET         143
+#define DDR3_MODULE_PART_NUMBER10_OFFSET        144
+#define DDR3_MODULE_PART_NUMBER11_OFFSET        145
+#define DDR3_MODULE_PART_NUMBER_LEN             18
+
+#define MODULE_ECC_OFFSET           0x3
+#define MODULE_ECC_BIT              0x3
+#define MODULE_ECC_INCLUDE          0x1
+
+#define MIRROR_OFFSET               0x3f
+#define MIRROR_SUPPORT              0x1
+#define MC_REGS_COUNT               118
+
+#define RAW_CARD_BIT                0x1f
+#define RAW_CARD_OFFSET             0x3e
+#define RAW_CARD_VERSION_F          0x05
+
+//define offset accroding to s1 definition as below
+#define S1_CID_NUM_OFFSET_V1        46
+#define S1_BG_NUM_OFFSET_V1         44
+#define S1_BA_NUM_OFFSET_V1         43
+#define S1_ROW_SIZE_OFFSET_V1       40
+#define S1_COL_SIZE_OFFSET_V1       38
+#define S1_ADDR_MIRROR_OFFSET_V1    37
+#define S1_DIMM_MEMSIZE_OFFSET_V1   25
+#define S1_DIMM_WIDTH_OFFSET_V1     23
+#define S1_DIMM_ECC_OFFSET_V1       22
+#define S1_DIMM_TYPE_OFFSET_V1      21
+#define S1_SDRAM_WIDTH_OFFSET_V1    19
+#define S1_SDRAM_TYPE_OFFSET_V1     16
+#define S1_MC_CS_MAP_OFFSET_V1      8
+#define S1_I2C_ADDR_OFFSET_V1       4
+
+#define MC_MEMSIZE_MASK_V1 0xfff
+#define S1_MC0_MEMSIZE_OFFSET_V1 4
+#define S1_MC1_MEMSIZE_OFFSET_V1 16
+
+
+#define MC_INTERLEAVE_BIT           0x14ULL //only work when NO_INTERLEAVE is not defined.(32 or above is not tested!!)
+
+#define INTERLEAVE_10
+
+#define DDR_CFG_BASE  PHYS_TO_UNCACHED(0xff00000)
+#define LS7A_DDR4_CFG_BASE  LS7A_GMEM_TEMP_ADDR
+#define DDR_DAT_BASE  UNCACHED_MEMORY_ADDR
+#define CONF_REG_BASE PHYS_TO_UNCACHED(0x1fe20000)
+
+//#define LVL_DEBUG
+//#define ENABLE_DDR_LEVELING
+//#define ENABLE_DDR_VREF_TRAINING
+
+
+#define PHY_REG_NUM            72
+#define CTL_REG_NUM            280
+#define PHY_REG_OFFSET         0x0
+#define CTL_REG_OFFSET         0x1000
+#define MON_REG_OFFSET         0x2000
+#define TST_REG_OFFSET         0x3000
+#define DRAM_INIT	       0x010
+
+#define DDR4_DDR3_MODE_OFFSET   0x000c
+#define X4_MODE_OFFSET         0x000d
+#define RDFIFO_VALID_OFFSET    0x0020
+#define PRAMBLE2_OFFSET        0x0021
+
+#define DLL_1XGEN_OFFSET       0x0102
+#define DLL_1XDLY_OFFSET       0x0103
+#define DLL_RDDQS0_OFFSET      0x0108
+#define DLL_RDDQS1_OFFSET      0x0109
+#define DQ_OE_CTRL_OFFSET      0x0110
+#define DQS_OE_CTRL_OFFSET     0x0111
+#define RDGATE_CTRL_OFFSET     0x0114
+#define RDGATE_MODE_OFFSET     0x0115
+#define RDGATE_LEN_OFFSET      0x0116
+#define RDODT_CTRL_OFFSET      0x0117
+#define RDDQS_PHASE_OFFSET     0x0118
+#define RDEDGE_SEL_OFFSET      0x0119
+#define DLY_2X_OFFSET          0x011a
+
+#define RDQSP_BDLY00_OFFSET    0x0150
+#define RDQSP_BDLY01_OFFSET    0x0151
+#define RDQSP_BDLY02_OFFSET    0x0152
+#define RDQSP_BDLY03_OFFSET    0x0153
+#define RDQSP_BDLY04_OFFSET    0x0154
+#define RDQSP_BDLY05_OFFSET    0x0155
+#define RDQSP_BDLY06_OFFSET    0x0156
+#define RDQSP_BDLY07_OFFSET    0x0157
+#define RDQSP_BDLY08_OFFSET    0x0158
+
+#define RDQSN_BDLY00_OFFSET    0x0160
+#define RDQSN_BDLY01_OFFSET    0x0161
+#define RDQSN_BDLY02_OFFSET    0x0162
+#define RDQSN_BDLY03_OFFSET    0x0163
+#define RDQSN_BDLY04_OFFSET    0x0164
+#define RDQSN_BDLY05_OFFSET    0x0165
+#define RDQSN_BDLY06_OFFSET    0x0166
+#define RDQSN_BDLY07_OFFSET    0x0167
+#define RDQSN_BDLY08_OFFSET    0x0168
+
+#define WRDQ_BDLY00_OFFSET     0x0120
+#define WRDQS0_BDLY_OFFSET     0x012b
+
+#define LVL_DLY_OFFSET         0x0702
+
+#define TPHY_RDDATA_OFFSET     0x1062
+
+#define DLL_VREF_OFFSET        0x00e0
+#define VREF_DLY_OFFSET        0x00e1
+#define VREF_NUM_OFFSET        0x00e2
+#define VREF_SAMPLE_OFFSET     0x00e3
+#define VREF_CTRL_DS0_OFFSET   0x0810
+
+#define MR3_CS0_OFFSET         0x1184
+#define MR6_CS0_OFFSET         0x118c
+#define RDDATA_OFFSET          0x1060
+#define SAMPLE_NUM		128
+#define N32bit			(SAMPLE_NUM/32)
+
+#define RDDQS_DLL_NUM		32
+#define RDQS_BDLY_NUM		16
+
+#define DLL_VALUE_OFFSET	0x0036
+
+//#define USE_MEM_TEST
+#define READ_TRAINING_BASE	0x0
+#define WRITE_TRAINING_BASE	0x1000000
+#define DDR_VREF_TRAINING_BASE	0x2000000
+
+#define READ_TRAINING_TIMES	0x100
+#define WRITE_TRAINING_TIMES	0x100
+#define DDR_VREF_TRAINING_TIMES 0x100
+
+//defination for s1
+#define SDRAM_TYPE_OFFSET   30
+#define DIMM_ECC_OFFSET     29
+#define DIMM_TYPE_OFFSET    28
+#define DIMM_WIDTH_OFFSET   27
+#define ROW_SIZE_OFFSET     24
+#define EIGHT_BANK_OFFSET   23
+#define ADDR_MIRROR_OFFSET  22
+#define COL_SIZE_OFFSET     20
+#define MC_CS_MAP_OFFSET    16
+#define MC1_CS_MAP_OFFSET   48
+#define SDRAM_WIDTH_OFFSET  15
+#define MC1_SDRAM_WIDTH_OFFSET 47
+#define MC_CS_MAP_MASK      (0xf)
+#define MC1_MEMSIZE_OFFSET  40
+#define MC0_MEMSIZE_OFFSET  8
+#define MC_MEMSIZE_MASK     (0x7f)
+#define DIMM_MEMSIZE_OFFSET 32
+#define DIMM_MEMSIZE_MASK   (0x7f)
+
+#define EIGHT_BANK_MODE_ADDR     (0x210)
+#define EIGHT_BANK_MODE_OFFSET   8
+#define ADDR_WIN_BANK_NUM_ADDR   (0x210)
+#define ADDR_WIN_BANK_NUM_OFFSET 34
+#define ROW_DIFF_ADDR            (0x210)
+#define ROW_DIFF_OFFSET          16
+#define COLUMN_DIFF_ADDR         (0x210)
+#define COLUMN_DIFF_OFFSET       0
+#define ADDRESS_MIRROR_ADDR      (0x168)
+#define ADDRESS_MIRROR_OFFSET    48
+
+ #define ODT_MAP_CS_ADDR         (0x170)
+
+uint64_t gmem_param[MC_REGS_COUNT] =
+{
+  0x0000002400010004ULL,       //000
+//0x0300000000000000ULL,       //000
+  0x0000000000000001ULL,       //008
+//0x0000000000000000ULL,       //008
+  0x0000000000000000ULL,       //010
+  0x4a4a4a4a16100100ULL,       //018
+//0x4a4a4a4a16100000ULL,       //018
+  0x0201000201010001ULL,       //020
+//0x0201000201000101ULL,       //020
+  0x0202000002010100ULL,       //028
+  0x0000000002010202ULL,       //030
+//0x0000000003020202ULL,       //030
+  0x000000202057371fULL,       //038
+//0x0000002020381800ULL,       //038
+  0x0201000201010001ULL,       //040
+//0x0201000201000101ULL,       //040
+  0x0202000002010100ULL,       //048
+  0x0000000002010202ULL,       //050
+//0x0000000003020202ULL,       //050
+  0x000000202058381bULL,       //058
+//0x0000002020381800ULL,       //058
+  0x0201000201000101ULL,       //060
+  0x0202000002010100ULL,       //068
+  0x0000000003020202ULL,       //070
+  0x0000002020301000ULL,       //078
+  0x0201000201000101ULL,       //080
+  0x0202000002010100ULL,       //088
+  0x0000000003020202ULL,       //090
+  0x0000002020301000ULL,       //098
+  0x0201000201000101ULL,       //0A0
+  0x0202000002010100ULL,       //0A8
+  0x0000000003020202ULL,       //0B0
+  0x0000002020301000ULL,       //0B8
+  0x0201000201000101ULL,       //0C0
+  0x0202000002010100ULL,       //0C8
+  0x0000000003020202ULL,       //0D0
+  0x0000002020301000ULL,       //0D8
+  0x0201000201000101ULL,       //0E0
+  0x0202000002010100ULL,       //0E8
+  0x0000000003020202ULL,       //0F0
+  0x0000002020301000ULL,       //0F8
+  0x0201000201000101ULL,       //100
+  0x0202000002010100ULL,       //108
+  0x0000000003020202ULL,       //110
+  0x0000002020301000ULL,       //118
+  0x0201000201000101ULL,       //120
+  0x0202000002010100ULL,       //128
+  0x0000000003020202ULL,       //130
+  0x00000020207f6000ULL,       //138
+  0x0403000001ff01ffULL,       //140
+  0x0000000000010100ULL,       //148
+  0x00000000f0020000ULL,       //150
+  0x00f60000f0000000ULL,       //158
+//0x00000000f0000000ULL,       //158
+  0x0000000001010001ULL,       //160
+//0x0000000000010001ULL,       //160
+  0x1400000701010101ULL,       //168
+  0x8421050000000501ULL,       //170
+//0x8421050084210501ULL,       //170
+  0x0000000000000000ULL,       //178
+  0x0001000001100000ULL,       //180
+//0x0000000001100000ULL,       //180
+  0x0000000000000000ULL,       //188
+  0x0000000000000000ULL,       //190
+  0x0000000001000100ULL,       //198
+//0x0000000000000000ULL,       //198
+  0x0000000800060940ULL,       //1A0
+  0x0000000800060940ULL,       //1A8
+  0x0000000800060940ULL,       //1B0
+  0x0000000800060940ULL,       //1B8
+  0x1b425b0802041904ULL,       //1C0
+//0x1b425b0802041905ULL,       //1C0
+  0x1004080810564080ULL,       //1C8
+  0x0802070100000014ULL,       //1D0
+//0x0802070200000014ULL,       //1D0
+  0x0d04080408060404ULL,       //1D8
+  0x0503000000000000ULL,       //1E0
+  0x030a000000010000ULL,       //1E8
+  0x000801e4ff030101ULL,       //1F0
+  0x0000000004081001ULL,       //1F8
+  0x0c000c000c000c00ULL,       //200
+  0x0c000c0000000000ULL,       //208
+  0x0008000d02030006ULL,       //210
+  0x0008000b00030106ULL,       //218
+  0x0008000b00030106ULL,       //220
+  0x0008000b00030106ULL,       //228
+  0x0fff000000000000ULL,       //230
+  0x0ffffe000000ff00ULL,       //238
+  0x0000000000000000ULL,       //240
+//0x0ffffe000000ff00ULL,       //240
+  0x0000000000000000ULL,       //248
+//0x0ffffe000000ff00ULL,       //248
+  0x0000000000000000ULL,       //250
+  0x0000000000000000ULL,       //258
+  0x0000000000000000ULL,       //260
+  0x0000000000000000ULL,       //268
+  0x0000001000000000ULL,       //270
+  0x0000000000000000ULL,       //278
+  0x0000000000000000ULL,       //280
+  0x0000000000000000ULL,       //288
+  0x0000000000000000ULL,       //290
+  0x0000000000000000ULL,       //298
+  0x0000000000000000ULL,       //2A0
+  0x0000000000000000ULL,       //2A8
+  0x0000000000000000ULL,       //2B0
+  0x0000000000000000ULL,       //2B8
+  0x0000000000000000ULL,       //2C0
+  0x0000000000000000ULL,       //2C8
+  0x0000000000000000ULL,       //2D0
+  0x0000000000000000ULL,       //2D8
+  0x0000000000000000ULL,       //2E0
+  0x0000000000000000ULL,       //2E8
+  0x0000000000000000ULL,       //2F0
+  0x0000000000000000ULL,       //2F8
+  0x0000000000000000ULL,       //300
+  0x0000000000000000ULL,       //308
+  0x0000000000000000ULL,       //310
+  0x0000000000000000ULL,       //318
+  0x0808301000006000ULL,       //320
+  0x0000000000000010ULL,       //328
+  0x00000110000009e0ULL,       //330
+  0x0000001000000000ULL,       //338
+  0x00c34fff00070f01ULL,       //340
+  0x0000000000000000ULL,       //348
+  0xffffffffffffffffULL,       //350
+  0x000000000001ffffULL,       //358
+  0x0000010100000000ULL,       //360
+//0x0000000000000000ULL,       //360
+  0x0000000000000000ULL,       //368
+  0x0000000000000000ULL,       //370
+  0x0000000000000000ULL,       //378
+  0x0000000000000001ULL,       //380
+//0x0000000000000000ULL,       //380
+  0x0000000000000000ULL,       //388
+  0x0000000000000000ULL,       //390
+  0x0000000000000000ULL        //398
+};
+#endif

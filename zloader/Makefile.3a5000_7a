@@ -1,0 +1,35 @@
+TARGET=ls3a5000_7a
+TARGETEL=loongson
+START=start.o
+MEMSIZE=128
+
+ASL_DIR		:=../Targets/${TARGET}/acpi/acpi_tables/dsdt
+export TARGET_LIB=mem_config.a ls7a.a
+export TARGET_CFG=make -C ${S}/Targets/${TARGET}/cache_stage/ddr4 clean;\
+                  make -C ${S}/pmon/arch/loongarch/ls7a/api clean;\
+                  python2 ${S}/Targets/${TARGET}/acpi/acpi_tables/dsdt/acpi_cfg.py; \
+                  ${S}/zloader/bin2c ${S}/Targets/${TARGET}/${TARGETEL}/dvfs.bin \
+                  ${S}/Targets/${TARGET}/include/dvfs.h dvfs_data
+export TARGET_LD_HEAD=make -C ${S}/Targets/${TARGET}/cache_stage/ddr4; \
+                      make -C ${S}/pmon/arch/loongarch/ls7a/api
+
+include Makefile.inc
+
+acpi: $(ASL_DIR)/dsdt.c
+
+$(ASL_DIR)/dsdt.c:	$(ASL_DIR)/dsdt.asl
+	$(CPP) -x assembler-with-cpp -P -o $<.tmp $<;
+#	sed -i '7i include ("dual_7a.asl")' $<.tmp	#dual 7a
+	iasl -p $< -tc -va $<.tmp;
+	mv $(patsubst %.asl,%.hex,$<) $@
+	sed -i -e "s,dsdt_aml_code,AmlCode," $@
+
+help:
+	@echo ""
+	@echo "********************************************************************************************************************"
+	@echo use make cfg     for config
+	@echo use make tgt=rom for generate romfile gzrom.bin for desktop
+	@echo use make cleanall for clean all code
+	@echo use make DEBUG=-g MYCC="'"-g3 -DMYDBG='"printf(\"debug:%s,%d\\n\",__FILE__,__LINE__);"'"'" to support MYDBG macro.
+	@echo "********************************************************************************************************************"
+	@echo ""
