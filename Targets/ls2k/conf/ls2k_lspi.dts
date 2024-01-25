@@ -10,9 +10,9 @@
 		ethernet0 = &gmac0;
 		ethernet1 = &gmac1;
 		serial0 = &cpu_uart0;
-		//serial1 = &cpu_uart3;
-		//serial2 = &cpu_uart4;
-		//serial3 = &cpu_uart5;
+		serial1 = &cpu_uart3;
+		serial2 = &cpu_uart4;
+		serial3 = &cpu_uart5;
 		i2c0 = &i2c0;
 		i2c1 = &i2c1;
 	};
@@ -174,7 +174,6 @@
 			no-loopback-test;
 		};
         
-#if 0
 		cpu_uart3: serial@0x1fe20300 {
 			compatible = "ns16550a";
 			reg = <0 0x1fe20300 0 0x10>;
@@ -201,7 +200,7 @@
 			interrupts = <1>;
 			no-loopback-test;
 		};
-#endif
+
 		pioA:gpio@0x1fe00500 {
 			compatible = "ls,ls2k-gpio", "ls,ls-gpio";
 			reg = <0 0x1fe00500 0 0x38>;
@@ -305,6 +304,16 @@
 				compatible = "atmel,24c16";
 				reg = <0x50>;
 				pagesize = <16>;
+			};
+			
+			gt911@5d {
+				compatible = "goodix,gt911";
+				reg = <0x5d>;
+				reset-gpios = <&pioA 2 0>;
+				irq-gpios = <&pioA 1 0>;
+				interrupt-parent = <&pioA>;
+				interrupts = <1 8>;
+				status = "okay";
 			};
 		};
 
@@ -784,7 +793,7 @@
 	};
 
 	panel: display@0 {
-#if 0
+#if 1
 		/* 1024X600 */
 		compatible = "forlinx,LCD070CG_1024X600_DC21", "avic,tm070ddh03";
 #else

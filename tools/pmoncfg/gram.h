@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.7.6.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
 /* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2021 Free Software Foundation,
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
    Inc.
 
    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <https://www.gnu.org/licenses/>.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -31,9 +31,8 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* DO NOT RELY ON FEATURES THAT ARE NOT DOCUMENTED in the manual,
-   especially those whose name start with YY_ or yy_.  They are
-   private implementation details that can be changed or removed.  */
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
 
 #ifndef YY_YY_GRAM_H_INCLUDED
 # define YY_YY_GRAM_H_INCLUDED
@@ -45,59 +44,50 @@
 extern int yydebug;
 #endif
 
-/* Token kinds.  */
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
   enum yytokentype
   {
-    YYEMPTY = -2,
-    YYEOF = 0,                     /* "end of file"  */
-    YYerror = 256,                 /* error  */
-    YYUNDEF = 257,                 /* "invalid token"  */
-    AND = 258,                     /* AND  */
-    AT = 259,                      /* AT  */
-    ATTACH = 260,                  /* ATTACH  */
-    BUILD = 261,                   /* BUILD  */
-    COMPILE_WITH = 262,            /* COMPILE_WITH  */
-    CONFIG = 263,                  /* CONFIG  */
-    DEFINE = 264,                  /* DEFINE  */
-    DEFOPT = 265,                  /* DEFOPT  */
-    DEVICE = 266,                  /* DEVICE  */
-    DISABLE = 267,                 /* DISABLE  */
-    DUMPS = 268,                   /* DUMPS  */
-    ENDFILE = 269,                 /* ENDFILE  */
-    XFILE = 270,                   /* XFILE  */
-    XOBJECT = 271,                 /* XOBJECT  */
-    FLAGS = 272,                   /* FLAGS  */
-    INCLUDE = 273,                 /* INCLUDE  */
-    XMACHINE = 274,                /* XMACHINE  */
-    MAJOR = 275,                   /* MAJOR  */
-    MAKEOPTIONS = 276,             /* MAKEOPTIONS  */
-    MINOR = 277,                   /* MINOR  */
-    ON = 278,                      /* ON  */
-    OPTIONS = 279,                 /* OPTIONS  */
-    SELECT = 280,                  /* SELECT  */
-    UNSELECT = 281,                /* UNSELECT  */
-    PSEUDO_DEVICE = 282,           /* PSEUDO_DEVICE  */
-    ROOT = 283,                    /* ROOT  */
-    SOURCE = 284,                  /* SOURCE  */
-    WITH = 285,                    /* WITH  */
-    NEEDS_COUNT = 286,             /* NEEDS_COUNT  */
-    NEEDS_FLAG = 287,              /* NEEDS_FLAG  */
-    RMOPTIONS = 288,               /* RMOPTIONS  */
-    ENABLE = 289,                  /* ENABLE  */
-    NUMBER = 290,                  /* NUMBER  */
-    PATHNAME = 291,                /* PATHNAME  */
-    WORD = 292,                    /* WORD  */
-    EMPTY = 293                    /* EMPTY  */
+    AND = 258,
+    AT = 259,
+    ATTACH = 260,
+    BUILD = 261,
+    COMPILE_WITH = 262,
+    CONFIG = 263,
+    DEFINE = 264,
+    DEFOPT = 265,
+    DEVICE = 266,
+    DISABLE = 267,
+    DUMPS = 268,
+    ENDFILE = 269,
+    XFILE = 270,
+    XOBJECT = 271,
+    FLAGS = 272,
+    INCLUDE = 273,
+    XMACHINE = 274,
+    MAJOR = 275,
+    MAKEOPTIONS = 276,
+    MINOR = 277,
+    ON = 278,
+    OPTIONS = 279,
+    SELECT = 280,
+    UNSELECT = 281,
+    PSEUDO_DEVICE = 282,
+    ROOT = 283,
+    SOURCE = 284,
+    WITH = 285,
+    NEEDS_COUNT = 286,
+    NEEDS_FLAG = 287,
+    RMOPTIONS = 288,
+    ENABLE = 289,
+    NUMBER = 290,
+    PATHNAME = 291,
+    WORD = 292,
+    EMPTY = 293
   };
-  typedef enum yytokentype yytoken_kind_t;
 #endif
-/* Token kinds.  */
-#define YYEMPTY -2
-#define YYEOF 0
-#define YYerror 256
-#define YYUNDEF 257
+/* Tokens.  */
 #define AND 258
 #define AT 259
 #define ATTACH 260
@@ -148,7 +138,7 @@ union YYSTYPE
 	const char *str;
 	int	val;
 
-#line 152 "gram.h"
+#line 142 "gram.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

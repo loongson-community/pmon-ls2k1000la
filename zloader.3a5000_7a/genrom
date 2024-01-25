@@ -1,0 +1,57 @@
+#!/usr/bin/perl
+my ($priv_end,$init_loongarch,$priv_start);
+open(F,qq(objdump -x $ARGV[0]|));
+while(<F>)
+{
+	chomp;
+	if(/([0-9a-f]+).+_end$/) {
+		$priv_end=qq(0x$1);
+	}
+	if(/([0-9a-f]+).+__bss_start$/) {
+		$priv_bss_start=qq(0x$1);
+	}
+	if(/([0-9a-f]+).+ init_loongarch$/) {
+		$priv_init_loongarch=qq(0x$1);
+	}
+	if(/([0-9a-f]+).+\s_start$/) {
+		$priv_start=qq(0x$1);
+	}
+}
+printf(<< "END"
+
+void realinit_loongarch();
+void init_loongarch(unsigned long long msize)
+{
+	unsigned long i;
+	char * biosdata_flash = (unsigned long long)biosdata & 0xfffffULL | 0x1c000000ULL | ($priv_start & (0xffULL << 56));
+	char * biosdata_mem = ($priv_start - sizeof(biosdata)) & ~0xffULL;
+
+	early_printf("Copy Bios to memory ");	//Copy the biosdata from flash to the memory
+	for (i = 0; i < sizeof(biosdata); i += sizeof(unsigned long)) {
+		*(volatile unsigned long*)(biosdata_mem + i) = *(volatile unsigned long*)(biosdata_flash + i);
+	}
+	early_printf("OK, Uncompressing Bios");
+	while(1) {
+		if(run_unzip(biosdata_mem, $priv_start) >= 0)
+			break;
+	}
+	memset((void *)$priv_bss_start, 0, $priv_end - $priv_bss_start);	//clear bss
+	memset((void *)$priv_start - 0x1000, 0, 0x1000);	//$priv_start-0x1000 for frame(registers),memset for pretty
+	early_printf("OK, Booting Bios\\r\\n");
+	realinit_loongarch(msize);
+}
+
+
+void realinit_loongarch(unsigned long long msize)
+{
+	__asm__ ("li.d  \$r3,$priv_start-0x4000;\\n" \\
+		"	li.d \$r12,$priv_init_loongarch;\\n" \\
+		"	move \$r4,\%0;\\n" \\
+
+		"	jirl \$r0,\$r12, 0;\\n" \\
+		:
+          	: "r" (msize)
+		: "\$r3", "\$r12");
+}
+END
+);
